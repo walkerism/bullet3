@@ -186,16 +186,3 @@ void btMultiBodySphericalJointLimit2::createConstraintRows(btMultiBodyConstraint
 		}
 	}
 }
-
-
-void btMultiBodySphericalJointLimit::debugDraw(class btIDebugDraw* drawer)
-{
-	btTransform tr;
-	tr.setIdentity();
-	if (m_bodyB)
-	{
-		btVector3 pivotBworld = m_bodyB->localPosToWorld(m_linkB, m_pivotB);
-		tr.setOrigin(pivotBworld);
-		drawer->drawTransform(tr, 0.1);
-	}
-}
