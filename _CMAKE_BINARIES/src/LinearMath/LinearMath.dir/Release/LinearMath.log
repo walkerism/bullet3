@@ -1,0 +1,17 @@
+﻿  Building Custom Rule C:/GitHub/bullet3/src/LinearMath/CMakeLists.txt
+  btAlignedAllocator.cpp
+  btConvexHull.cpp
+  btConvexHullComputer.cpp
+  btGeometryUtil.cpp
+  btPolarDecomposition.cpp
+  btQuickprof.cpp
+  btReducedVector.cpp
+  btSerializer.cpp
+  btSerializer64.cpp
+  btThreads.cpp
+  btVector3.cpp
+  btTaskScheduler.cpp
+  btThreadSupportPosix.cpp
+  btThreadSupportWin32.cpp
+  Generating Code...
+  LinearMath.vcxproj -> C:\GitHub\RL_Gym\ThirdParty\lib\Release\LinearMath.lib

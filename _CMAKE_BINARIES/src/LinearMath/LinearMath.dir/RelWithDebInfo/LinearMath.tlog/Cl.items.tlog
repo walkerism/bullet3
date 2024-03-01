@@ -1,0 +1,14 @@
+C:\GitHub\bullet3\src\LinearMath\btAlignedAllocator.cpp;C:\GitHub\bullet3\_CMAKE_BINARIES\src\LinearMath\LinearMath.dir\RelWithDebInfo\btAlignedAllocator.obj
+C:\GitHub\bullet3\src\LinearMath\btConvexHull.cpp;C:\GitHub\bullet3\_CMAKE_BINARIES\src\LinearMath\LinearMath.dir\RelWithDebInfo\btConvexHull.obj
+C:\GitHub\bullet3\src\LinearMath\btConvexHullComputer.cpp;C:\GitHub\bullet3\_CMAKE_BINARIES\src\LinearMath\LinearMath.dir\RelWithDebInfo\btConvexHullComputer.obj
+C:\GitHub\bullet3\src\LinearMath\btGeometryUtil.cpp;C:\GitHub\bullet3\_CMAKE_BINARIES\src\LinearMath\LinearMath.dir\RelWithDebInfo\btGeometryUtil.obj
+C:\GitHub\bullet3\src\LinearMath\btPolarDecomposition.cpp;C:\GitHub\bullet3\_CMAKE_BINARIES\src\LinearMath\LinearMath.dir\RelWithDebInfo\btPolarDecomposition.obj
+C:\GitHub\bullet3\src\LinearMath\btQuickprof.cpp;C:\GitHub\bullet3\_CMAKE_BINARIES\src\LinearMath\LinearMath.dir\RelWithDebInfo\btQuickprof.obj
+C:\GitHub\bullet3\src\LinearMath\btReducedVector.cpp;C:\GitHub\bullet3\_CMAKE_BINARIES\src\LinearMath\LinearMath.dir\RelWithDebInfo\btReducedVector.obj
+C:\GitHub\bullet3\src\LinearMath\btSerializer.cpp;C:\GitHub\bullet3\_CMAKE_BINARIES\src\LinearMath\LinearMath.dir\RelWithDebInfo\btSerializer.obj
+C:\GitHub\bullet3\src\LinearMath\btSerializer64.cpp;C:\GitHub\bullet3\_CMAKE_BINARIES\src\LinearMath\LinearMath.dir\RelWithDebInfo\btSerializer64.obj
+C:\GitHub\bullet3\src\LinearMath\btThreads.cpp;C:\GitHub\bullet3\_CMAKE_BINARIES\src\LinearMath\LinearMath.dir\RelWithDebInfo\btThreads.obj
+C:\GitHub\bullet3\src\LinearMath\btVector3.cpp;C:\GitHub\bullet3\_CMAKE_BINARIES\src\LinearMath\LinearMath.dir\RelWithDebInfo\btVector3.obj
+C:\GitHub\bullet3\src\LinearMath\TaskScheduler\btTaskScheduler.cpp;C:\GitHub\bullet3\_CMAKE_BINARIES\src\LinearMath\LinearMath.dir\RelWithDebInfo\btTaskScheduler.obj
+C:\GitHub\bullet3\src\LinearMath\TaskScheduler\btThreadSupportPosix.cpp;C:\GitHub\bullet3\_CMAKE_BINARIES\src\LinearMath\LinearMath.dir\RelWithDebInfo\btThreadSupportPosix.obj
+C:\GitHub\bullet3\src\LinearMath\TaskScheduler\btThreadSupportWin32.cpp;C:\GitHub\bullet3\_CMAKE_BINARIES\src\LinearMath\LinearMath.dir\RelWithDebInfo\btThreadSupportWin32.obj

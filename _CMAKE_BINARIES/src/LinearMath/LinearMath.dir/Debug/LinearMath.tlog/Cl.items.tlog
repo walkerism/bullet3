@@ -1,0 +1,14 @@
+C:\GitHub\bullet3\src\LinearMath\btAlignedAllocator.cpp;C:\GitHub\bullet3\_CMAKE_BINARIES\src\LinearMath\LinearMath.dir\Debug\btAlignedAllocator.obj
+C:\GitHub\bullet3\src\LinearMath\btConvexHull.cpp;C:\GitHub\bullet3\_CMAKE_BINARIES\src\LinearMath\LinearMath.dir\Debug\btConvexHull.obj
+C:\GitHub\bullet3\src\LinearMath\btConvexHullComputer.cpp;C:\GitHub\bullet3\_CMAKE_BINARIES\src\LinearMath\LinearMath.dir\Debug\btConvexHullComputer.obj
+C:\GitHub\bullet3\src\LinearMath\btGeometryUtil.cpp;C:\GitHub\bullet3\_CMAKE_BINARIES\src\LinearMath\LinearMath.dir\Debug\btGeometryUtil.obj
+C:\GitHub\bullet3\src\LinearMath\btPolarDecomposition.cpp;C:\GitHub\bullet3\_CMAKE_BINARIES\src\LinearMath\LinearMath.dir\Debug\btPolarDecomposition.obj
+C:\GitHub\bullet3\src\LinearMath\btQuickprof.cpp;C:\GitHub\bullet3\_CMAKE_BINARIES\src\LinearMath\LinearMath.dir\Debug\btQuickprof.obj
+C:\GitHub\bullet3\src\LinearMath\btReducedVector.cpp;C:\GitHub\bullet3\_CMAKE_BINARIES\src\LinearMath\LinearMath.dir\Debug\btReducedVector.obj
+C:\GitHub\bullet3\src\LinearMath\btSerializer.cpp;C:\GitHub\bullet3\_CMAKE_BINARIES\src\LinearMath\LinearMath.dir\Debug\btSerializer.obj
+C:\GitHub\bullet3\src\LinearMath\btSerializer64.cpp;C:\GitHub\bullet3\_CMAKE_BINARIES\src\LinearMath\LinearMath.dir\Debug\btSerializer64.obj
+C:\GitHub\bullet3\src\LinearMath\btThreads.cpp;C:\GitHub\bullet3\_CMAKE_BINARIES\src\LinearMath\LinearMath.dir\Debug\btThreads.obj
+C:\GitHub\bullet3\src\LinearMath\btVector3.cpp;C:\GitHub\bullet3\_CMAKE_BINARIES\src\LinearMath\LinearMath.dir\Debug\btVector3.obj
+C:\GitHub\bullet3\src\LinearMath\TaskScheduler\btTaskScheduler.cpp;C:\GitHub\bullet3\_CMAKE_BINARIES\src\LinearMath\LinearMath.dir\Debug\btTaskScheduler.obj
+C:\GitHub\bullet3\src\LinearMath\TaskScheduler\btThreadSupportPosix.cpp;C:\GitHub\bullet3\_CMAKE_BINARIES\src\LinearMath\LinearMath.dir\Debug\btThreadSupportPosix.obj
+C:\GitHub\bullet3\src\LinearMath\TaskScheduler\btThreadSupportWin32.cpp;C:\GitHub\bullet3\_CMAKE_BINARIES\src\LinearMath\LinearMath.dir\Debug\btThreadSupportWin32.obj

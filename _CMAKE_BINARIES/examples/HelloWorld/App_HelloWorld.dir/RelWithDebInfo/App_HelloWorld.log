@@ -1,0 +1,4 @@
+﻿  Building Custom Rule C:/GitHub/bullet3/examples/HelloWorld/CMakeLists.txt
+  HelloWorld.cpp
+LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/OPT:ICF' specification
+  App_HelloWorld.vcxproj -> C:\GitHub\bullet3\_CMAKE_BINARIES\examples\HelloWorld\RelWithDebInfo\App_HelloWorld.exe
