@@ -8,6 +8,9 @@
 ///This file was written by Luke Murray
 
 #include "btMultiBodySphericalJointLimit2.h"
+#include "LinearMath/btTransformUtil.h"
+#include "BulletDynamics/ConstraintSolver/btGeneric6DofSpring2Constraint.h"
+#include "LinearMath/btIDebugDraw.h"
 
 btMultiBodySphericalJointLimit2::btMultiBodySphericalJointLimit2(btMultiBody* body, int link, 
 	btScalar swingxRange_max,
@@ -16,28 +19,17 @@ btMultiBodySphericalJointLimit2::btMultiBodySphericalJointLimit2(btMultiBody* bo
 	btScalar swingyRange_min,
 	btScalar twistRange_max,
 	btScalar twistRange_min,
-	btScalar maxAppliedImpulse);
-	: btMultiBodyConstraint(body, body, link, body->getLink(link).m_parent, 3, true, MULTIBODY_CONSTRAINT_SPHERICAL_LIMIT),
-	m_desiredVelocity(0, 0, 0),
-	m_desiredPosition(0,0,0,1),
-	m_use_multi_dof_params(false),
-	m_kd(1., 1., 1.),
-	m_kp(0.2, 0.2, 0.2),
-	m_erp(1),
-	m_rhsClamp(SIMD_INFINITY),
-	m_maxAppliedImpulseMultiDof(maxAppliedImpulse, maxAppliedImpulse, maxAppliedImpulse),
-	m_pivotA(m_bodyA->getLink(link).m_eVector),
-	m_pivotB(m_bodyB->getLink(link).m_eVector),
-	m_swingxRange(abs(swingxRange_max)),
-	m_swingxRange_min(abs(swingxRange_min)),
-	m_swingyRange(abd(swingyRange_max)),
-	m_swingyRange_min(abs(swingyRange_min)),
-	m_twistRange(abs(twistRange_max)),
-	m_twistRange_min(abs(twistRange_min)
-
+	btScalar maxAppliedImpulse)
+	: btMultiBodySphericalJointLimit(body, link, 
+	swingxRange_max,
+	swingyRange_max,
+	twistRange_max,
+	maxAppliedImpulse
+	)
 {
-
-	m_maxAppliedImpulse = maxAppliedImpulse;
+	m_swingxRange_min = abs(swingxRange_min);
+	m_swingyRange_min = abs(swingyRange_min);
+	m_twistRange_min = abs(twistRange_min);
 }
 
 

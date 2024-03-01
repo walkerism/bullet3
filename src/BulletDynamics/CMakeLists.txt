@@ -36,14 +36,14 @@ SET(BulletDynamics_SRCS
 	Featherstone/btMultiBodyDynamicsWorld.cpp
 	Featherstone/btMultiBodyFixedConstraint.cpp
 	Featherstone/btMultiBodyGearConstraint.cpp
-	Featherstone/btMultiBodyJointLimitConstraint.cpp	
-	Featherstone/btMultiBodyJointLimitConstraint2.cpp
+	Featherstone/btMultiBodyJointLimitConstraint.cpp
 	Featherstone/btMultiBodyJointMotor.cpp
 	Featherstone/btMultiBodyMLCPConstraintSolver.cpp
 	Featherstone/btMultiBodyPoint2Point.cpp
 	Featherstone/btMultiBodySliderConstraint.cpp
 	Featherstone/btMultiBodySphericalJointMotor.cpp
-	Featherstone/btMultiBodySphericalJointLimit.cpp
+	Featherstone/btMultiBodySphericalJointLimit.cpp	
+	Featherstone/btMultiBodySphericalJointLimit2.cpp
 	MLCPSolvers/btDantzigLCP.cpp
 	MLCPSolvers/btMLCPSolver.cpp
 	MLCPSolvers/btLemkeAlgorithm.cpp
@@ -100,7 +100,6 @@ SET(Featherstone_HDRS
 	Featherstone/btMultiBodyFixedConstraint.h
 	Featherstone/btMultiBodyGearConstraint.h
 	Featherstone/btMultiBodyJointLimitConstraint.h
-	Featherstone/btMultiBodyJointLimitConstraint2.h
 	Featherstone/btMultiBodyJointMotor.h
 	Featherstone/btMultiBodyLink.h
 	Featherstone/btMultiBodyLinkCollider.h
@@ -108,8 +107,9 @@ SET(Featherstone_HDRS
 	Featherstone/btMultiBodyPoint2Point.h
 	Featherstone/btMultiBodySliderConstraint.h
 	Featherstone/btMultiBodySolverConstraint.h
-  Featherstone/btMultiBodySphericalJointMotor.h
-	Featherstone/btMultiBodySphericalJointLimit.h
+  	Featherstone/btMultiBodySphericalJointMotor.h
+	Featherstone/btMultiBodySphericalJointLimit.h	
+	Featherstone/btMultiBodySphericalJointLimit2.h
 
 )
 
