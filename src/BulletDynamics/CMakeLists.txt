@@ -36,7 +36,8 @@ SET(BulletDynamics_SRCS
 	Featherstone/btMultiBodyDynamicsWorld.cpp
 	Featherstone/btMultiBodyFixedConstraint.cpp
 	Featherstone/btMultiBodyGearConstraint.cpp
-	Featherstone/btMultiBodyJointLimitConstraint.cpp
+	Featherstone/btMultiBodyJointLimitConstraint.cpp	
+	Featherstone/btMultiBodyJointLimitConstraint2.cpp
 	Featherstone/btMultiBodyJointMotor.cpp
 	Featherstone/btMultiBodyMLCPConstraintSolver.cpp
 	Featherstone/btMultiBodyPoint2Point.cpp
@@ -99,6 +100,7 @@ SET(Featherstone_HDRS
 	Featherstone/btMultiBodyFixedConstraint.h
 	Featherstone/btMultiBodyGearConstraint.h
 	Featherstone/btMultiBodyJointLimitConstraint.h
+	Featherstone/btMultiBodyJointLimitConstraint2.h
 	Featherstone/btMultiBodyJointMotor.h
 	Featherstone/btMultiBodyLink.h
 	Featherstone/btMultiBodyLinkCollider.h
