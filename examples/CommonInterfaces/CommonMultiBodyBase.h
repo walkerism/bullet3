@@ -100,16 +100,17 @@ struct CommonMultiBodyBase : public CommonExampleInterface
 		///collision configuration contains default setup for memory, collision setup
 		m_collisionConfiguration = new btDefaultCollisionConfiguration();
 		//m_collisionConfiguration->setConvexConvexMultipointIterations();
-		m_filterCallback = new MyOverlapFilterCallback2();
+		//m_filterCallback = new MyOverlapFilterCallback2();
 
 		///use the default collision dispatcher. For parallel processing you can use a diffent dispatcher (see Extras/BulletMultiThreaded)
 		m_dispatcher = new btCollisionDispatcher(m_collisionConfiguration);
 
-		m_pairCache = new btHashedOverlappingPairCache();
+		//m_pairCache = new btHashedOverlappingPairCache();
 
-		m_pairCache->setOverlapFilterCallback(m_filterCallback);
+		//m_pairCache->setOverlapFilterCallback(m_filterCallback);
 
-		m_broadphase = new btDbvtBroadphase(m_pairCache);  //btSimpleBroadphase();
+		//m_broadphase = new btDbvtBroadphase(m_pairCache);  //btSimpleBroadphase();
+		m_broadphase = new btDbvtBroadphase();  //btSimpleBroadphase();
 
 		m_solver = new btMultiBodyConstraintSolver;
 

@@ -184,7 +184,7 @@ void ImportMJCFSetup::initPhysics()
 
 	//MuJoCo uses a slightly different collision filter mode, use the FILTER_GROUPAMASKB_OR_GROUPBMASKA2
 	//@todo also use the modified collision filter for raycast and other collision related queries
-	m_filterCallback->m_filterMode = FILTER_GROUPAMASKB_OR_GROUPBMASKA2;
+	//m_filterCallback->m_filterMode = FILTER_GROUPAMASKB_OR_GROUPBMASKA2;
 
 	//m_dynamicsWorld->getSolverInfo().m_numIterations = 50;
 	m_guiHelper->createPhysicsDebugDrawer(m_dynamicsWorld);
@@ -264,7 +264,7 @@ void ImportMJCFSetup::initPhysics()
 					m_data->m_mb = mb;
 					if (mb->getLink(mbLinkIndex).m_jointType == btMultibodyLink::eRevolute || mb->getLink(mbLinkIndex).m_jointType == btMultibodyLink::ePrismatic)
 					{
-						if (m_data->m_numMotors < MAX_NUM_MOTORS)
+						if (m_data->m_numMotors < MAX_NUM_MOTORS && false)
 						{
 							char motorName[1024];
 							sprintf(motorName, "%s q ", jointName->c_str());

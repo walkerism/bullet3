@@ -403,6 +403,12 @@ btTransform ConvertURDF2BulletInternal(
 			offsetInB = localInertialFrame.inverse();
 			btQuaternion parentRotToThis = offsetInB.getRotation() * offsetInA.inverse().getRotation();
 
+			b3Printf("\n");
+			b3Printf("NAME: %s", linkName.c_str());
+			b3Printf("offsetInA: %f %f %f", offsetInA.getOrigin().x(), offsetInA.getOrigin().y(), offsetInA.getOrigin().z());
+			b3Printf("offsetInA: %f %f %f", offsetInB.getOrigin().x(), offsetInB.getOrigin().y(), offsetInB.getOrigin().z());
+			b3Printf("parentRotToThis: %f %f %f %f", parentRotToThis.x(), parentRotToThis.y(), parentRotToThis.z(), parentRotToThis.w());
+
 			bool disableParentCollision = true;
 
 			if (createMultiBody && cache.m_bulletMultiBody)
@@ -413,7 +419,14 @@ btTransform ConvertURDF2BulletInternal(
 				cache.m_bulletMultiBody->getLink(mbLinkIndex).m_jointUpperLimit = jointUpperLimit;
 				cache.m_bulletMultiBody->getLink(mbLinkIndex).m_jointMaxForce = jointMaxForce;
 				cache.m_bulletMultiBody->getLink(mbLinkIndex).m_jointMaxVelocity = jointMaxVelocity;
+				b3Printf("jointDamping: %f", jointDamping);
+				b3Printf("jointFriction: %f", jointFriction);
+				b3Printf("jointLowerLimit: %f", jointLowerLimit);
+				b3Printf("jointUpperLimit: %f", jointUpperLimit);
+				b3Printf("jointMaxForce: %f", jointMaxForce);
+				b3Printf("jointMaxVelocity: %f", jointMaxVelocity);
 			}
+
 
 			switch (jointType)
 			{
@@ -503,6 +516,9 @@ btTransform ConvertURDF2BulletInternal(
 						//todo: adjust the center of mass transform and pivot axis properly
 						cache.m_bulletMultiBody->setupFixed(mbLinkIndex, mass, localInertiaDiagonal, mbParentIndex,
 															parentRotToThis, offsetInA.getOrigin(), -offsetInB.getOrigin());
+
+						b3Printf("mass: %f", mass);
+						b3Printf("localInertiaDiagonal: %f %f %f", localInertiaDiagonal.x(), localInertiaDiagonal.y(), localInertiaDiagonal.z());
 					}
 					else
 					{
@@ -545,6 +561,14 @@ btTransform ConvertURDF2BulletInternal(
 							btMultiBodyConstraint* con = new btMultiBodyJointLimitConstraint(cache.m_bulletMultiBody, mbLinkIndex, jointLowerLimit, jointUpperLimit);
 							world1->addMultiBodyConstraint(con);
 						}
+						b3Printf("mass: %f", mass);
+						b3Printf("localInertiaDiagonal: %f %f %f", localInertiaDiagonal.x(), localInertiaDiagonal.y(), localInertiaDiagonal.z());
+						btVector3 t = quatRotate(offsetInB.getRotation(),
+							jointAxisInJointSpace);
+						b3Printf("jointAxis_pre: %f %f %f", jointAxisInJointSpace.x(), jointAxisInJointSpace.y(), jointAxisInJointSpace.z());
+						b3Printf("jointAxis_post: %f %f %f", t.x(), t.y(), t.z());
+						b3Printf("jointLowerLimit: %f", jointLowerLimit);
+						b3Printf("jointUpperLimit: %f", jointUpperLimit);
 #endif
 					}
 					else
@@ -671,7 +695,12 @@ btTransform ConvertURDF2BulletInternal(
 				{
 					collisionFilterMask = colMask;
 				}
+
+				collisionFilterMask = colMask;
 				world1->addCollisionObject(col, collisionFilterGroup, collisionFilterMask);
+
+				b3Printf("collisionFilterGroup: %d", collisionFilterGroup);
+				b3Printf("collisionFilterMask: %d", collisionFilterMask);
 
 				btVector4 color2 = (flags & CUF_GOOGLEY_UNDEFINED_COLORS) ? selectColor2() : btVector4(1, 1, 1, 1);
 				btVector3 specularColor(1, 1, 1);
