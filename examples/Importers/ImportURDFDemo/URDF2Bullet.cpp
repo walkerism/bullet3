@@ -392,6 +392,10 @@ btTransform ConvertURDF2BulletInternal(
 				}
 
 				cache.registerMultiBody(urdfLinkIndex, cache.m_bulletMultiBody, inertialFrameInWorldSpace, mass, localInertiaDiagonal, compoundShape, localInertialFrame);
+
+				b3Printf("base %d", -1);
+				b3Printf("mass %f", mass);
+				b3Printf("localInertiaDiagonal %f %f %f", localInertiaDiagonal.x(), localInertiaDiagonal.y(), localInertiaDiagonal.z());
 			}
 		}
 
@@ -402,6 +406,7 @@ btTransform ConvertURDF2BulletInternal(
 			offsetInA = parentLocalInertialFrame.inverse() * parent2joint;
 			offsetInB = localInertialFrame.inverse();
 			btQuaternion parentRotToThis = offsetInB.getRotation() * offsetInA.inverse().getRotation();
+
 
 			bool disableParentCollision = true;
 
@@ -414,6 +419,7 @@ btTransform ConvertURDF2BulletInternal(
 				cache.m_bulletMultiBody->getLink(mbLinkIndex).m_jointMaxForce = jointMaxForce;
 				cache.m_bulletMultiBody->getLink(mbLinkIndex).m_jointMaxVelocity = jointMaxVelocity;
 			}
+			b3Printf("\n");
 
 			switch (jointType)
 			{
@@ -500,6 +506,21 @@ btTransform ConvertURDF2BulletInternal(
 
 					if (createMultiBody)
 					{
+						b3Printf("fixed");
+						b3Printf("mbLinkIndex %d", mbLinkIndex);
+						b3Printf("mbParentIndex %d", mbParentIndex);
+						b3Printf("mass %f", mass);
+						b3Printf("localInertiaDiagonal %f %f %f", localInertiaDiagonal.x(), localInertiaDiagonal.y(), localInertiaDiagonal.z());
+						b3Printf("parentRotToThis %f %f %f %f", parentRotToThis.x(), parentRotToThis.y(), parentRotToThis.z(), parentRotToThis.w());
+						b3Printf("offsetInA.getOrigin() %f %f %f",
+							offsetInA.getOrigin().x(), offsetInA.getOrigin().y(), offsetInA.getOrigin().z());
+						b3Printf("offsetInA.getRotation() %f %f %f %f",
+							offsetInA.getRotation().x(), offsetInA.getRotation().y(), offsetInA.getRotation().z(), offsetInA.getRotation().w());
+						b3Printf("offsetInB.getOrigin() %f %f %f",
+							offsetInB.getOrigin().x(), offsetInB.getOrigin().y(), offsetInB.getOrigin().z());
+						b3Printf("offsetInB.getRotation() %f %f %f %f",
+							offsetInB.getRotation().x(), offsetInB.getRotation().y(), offsetInB.getRotation().z(), offsetInB.getRotation().w());
+
 						//todo: adjust the center of mass transform and pivot axis properly
 						cache.m_bulletMultiBody->setupFixed(mbLinkIndex, mass, localInertiaDiagonal, mbParentIndex,
 															parentRotToThis, offsetInA.getOrigin(), -offsetInB.getOrigin());
@@ -531,6 +552,26 @@ btTransform ConvertURDF2BulletInternal(
 					if (createMultiBody)
 					{
 #ifndef USE_DISCRETE_DYNAMICS_WORLD
+						btVector3 joint = quatRotate(offsetInB.getRotation(),
+							jointAxisInJointSpace);
+
+						b3Printf("rev");
+						b3Printf("mbLinkIndex %d", mbLinkIndex);
+						b3Printf("mbParentIndex %d", mbParentIndex);
+						b3Printf("mass %f", mass);
+						b3Printf("localInertiaDiagonal %f %f %f", localInertiaDiagonal.x(), localInertiaDiagonal.y(), localInertiaDiagonal.z());
+						b3Printf("parentRotToThis %f %f %f %f", parentRotToThis.x(), parentRotToThis.y(), parentRotToThis.z(), parentRotToThis.w());
+						b3Printf("jointAxisInJointSpace %f %f %f", jointAxisInJointSpace.x(), jointAxisInJointSpace.y(), jointAxisInJointSpace.z());
+						b3Printf("joint %f %f %f", joint.x(), joint.y(), joint.z());
+						b3Printf("offsetInA.getOrigin() %f %f %f", 
+							offsetInA.getOrigin().x(), offsetInA.getOrigin().y(), offsetInA.getOrigin().z());
+						b3Printf("offsetInA.getRotation() %f %f %f %f",
+							offsetInA.getRotation().x(), offsetInA.getRotation().y(), offsetInA.getRotation().z(), offsetInA.getRotation().w());
+						b3Printf("offsetInB.getOrigin() %f %f %f",
+							offsetInB.getOrigin().x(), offsetInB.getOrigin().y(), offsetInB.getOrigin().z());
+						b3Printf("offsetInB.getRotation() %f %f %f %f",
+							offsetInB.getRotation().x(), offsetInB.getRotation().y(), offsetInB.getRotation().z(), offsetInB.getRotation().w());
+
 						cache.m_bulletMultiBody->setupRevolute(mbLinkIndex, mass, localInertiaDiagonal, mbParentIndex,
 															   parentRotToThis, quatRotate(offsetInB.getRotation(), 
 																   jointAxisInJointSpace), 
@@ -544,6 +585,10 @@ btTransform ConvertURDF2BulletInternal(
 							//printf("create btMultiBodyJointLimitConstraint for revolute link name=%s urdf link index=%d (low=%f, up=%f)\n", name.c_str(), urdfLinkIndex, jointLowerLimit, jointUpperLimit);
 							btMultiBodyConstraint* con = new btMultiBodyJointLimitConstraint(cache.m_bulletMultiBody, mbLinkIndex, jointLowerLimit, jointUpperLimit);
 							world1->addMultiBodyConstraint(con);
+
+
+							b3Printf("jointLowerLimit %f", jointLowerLimit);
+							b3Printf("jointUpperLimit %f", jointUpperLimit);
 						}
 #endif
 					}
@@ -633,6 +678,15 @@ btTransform ConvertURDF2BulletInternal(
 				compoundShape->setUserIndex(graphicsIndex);
 
 				col->setCollisionShape(compoundShape);
+				b3Printf("compoundShape->getShapeType() %d", compoundShape->getShapeType());
+
+				btTransform traaaa;
+				traaaa.setIdentity();
+				btVector3 AABBmin;
+				btVector3 AABBmax;
+				compoundShape->getAabb(traaaa, AABBmin, AABBmax);
+				b3Printf("AABBmin %f %f %f", AABBmin.x(), AABBmin.y(), AABBmin.z());
+				b3Printf("AABBmax %f %f %f", AABBmin.x(), AABBmin.y(), AABBmin.z());
 
 				if (compoundShape->getShapeType() == TRIANGLE_MESH_SHAPE_PROXYTYPE)
 				{
@@ -696,6 +750,9 @@ btTransform ConvertURDF2BulletInternal(
 
 				if (mbLinkIndex >= 0)  //???? double-check +/- 1
 				{
+
+					b3Printf("mbLinkIndex %d", mbLinkIndex);
+
 					//if the base is static and all joints in the chain between this link and the base are fixed, 
 					//then this link is static too (doesn't merge islands)
 					if (cache.m_bulletMultiBody->getBaseMass() == 0)
@@ -717,7 +774,11 @@ btTransform ConvertURDF2BulletInternal(
 						}
 
 					}
+
+					b3Printf("mbLinkIndex %d", mbLinkIndex);
 					cache.m_bulletMultiBody->getLink(mbLinkIndex).m_collider = col;
+
+
 					if (flags & CUF_USE_SELF_COLLISION_INCLUDE_PARENT)
 					{
 						cache.m_bulletMultiBody->getLink(mbLinkIndex).m_flags &= ~BT_MULTIBODYLINKFLAGS_DISABLE_PARENT_COLLISION;
